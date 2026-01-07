@@ -1,0 +1,566 @@
+/* Global Styles */
+/* Mobile-first approach: base styles for small screens, then enhance for larger screens */
+/* Color palette: Cream background (#faf7f2), warm brown (#8B4513), muted orange (#D2691E), olive green (#556B2F) */
+/* Typography: Large, legible fonts with good line-height for readability */
+/* Design choices: Soft shadows, rounded corners, subtle animations for modern feel */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* Modern system fonts for readability */
+    background-color: #faf7f2; /* Soft cream/off-white background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7; /* Improved line-height for better readability */
+    font-size: 16px; /* Base font size for mobile */
+}
+
+header {
+    background: linear-gradient(135deg, #8B4513, #A0522D); /* Warm brown gradient for depth */
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-subtitle {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.back-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.back-link:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Homepage Styles */
+/* Responsive grid: single column on mobile, 2 on tablet, 3 on desktop */
+/* Recipe cards: Soft shadows, rounded corners, hover lift effect */
+/* Design choices: Cards stand out against cream background, easy to distinguish */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Increased gap for better spacing */
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    .recipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .recipe-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+.recipe-card {
+    background-color: white;
+    border-radius: 12px; /* Slightly more rounded for modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04); /* Layered shadows for depth */
+    overflow: hidden;
+    transition: all 0.3s ease; /* Smooth transition for hover */
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Lift and slight scale on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08); /* Enhanced shadow on hover */
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 220px; /* Slightly taller for better image display */
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Image zoom on hover */
+}
+
+.recipe-card:hover img {
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.recipe-card h2 {
+    padding: 1.25rem;
+    margin: 0;
+    font-size: 1.4rem; /* Slightly smaller for mobile, will scale up */
+    font-weight: 600; /* Semi-bold for better readability */
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Delete Button Styling */
+/* Positioned on recipe cards for user-added recipes only */
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    opacity: 0.7;
+}
+
+.delete-btn:hover {
+    background: rgba(220, 53, 69, 1);
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.delete-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Larger screens: increase font sizes and adjust spacing */
+@media (min-width: 600px) {
+    .recipe-card h2 {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .recipe-card h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Recipe Page Styles */
+/* Layout: Centered content with proper spacing, image on top, title below */
+/* Typography: Clear headings, readable body text, proper hierarchy */
+/* Design choices: Use olive green for section headers, warm brown for title, soft spacing */
+.recipe-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-top: 2rem; /* Space from header */
+}
+
+.recipe-content img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Limit height for consistency */
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.recipe-content h1 {
+    color: #8B4513; /* Warm brown for recipe title */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.recipe-content h2 {
+    color: #556B2F; /* Olive green for section headers */
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #D2691E; /* Muted orange accent line */
+    display: inline-block; /* Only underline the text */
+}
+
+.recipe-content ul, .recipe-content ol {
+    margin-bottom: 2rem;
+    padding-left: 2rem; /* More padding for better indentation */
+    background-color: #fafcfa; /* Very light green tint for lists */
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    border-left: 4px solid #556B2F; /* Olive green left border */
+}
+
+.recipe-content li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.recipe-content ul li::before {
+    content: "•";
+    color: #D2691E; /* Muted orange bullet */
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+}
+
+.recipe-content ol {
+    counter-reset: step-counter;
+}
+
+.recipe-content ol li::before {
+    content: counter(step-counter) ".";
+    counter-increment: step-counter;
+    color: #D2691E;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+    width: 1.2rem;
+    text-align: right;
+}
+
+/* Notes section styling */
+.recipe-content h2:last-of-type + ul,
+.recipe-content h2:last-of-type + ol {
+    background-color: #fff8f5; /* Light orange tint for notes */
+    border-left-color: #CD5C5C; /* Soft red accent */
+}
+
+/* General paragraph styling */
+.recipe-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Touch-friendly styles and accessibility */
+/* Ensure all interactive elements meet minimum touch target sizes */
+/* Add focus states for keyboard navigation */
+.recipe-card, .back-link {
+    min-height: 44px; /* iOS touch target */
+}
+
+.recipe-card:focus {
+    outline: 2px solid #D2691E; /* Muted orange focus ring */
+    outline-offset: 2px;
+}
+
+/* Add Recipe Button */
+/* Prominent but not intrusive button in header */
+.add-recipe-btn {
+    background: linear-gradient(135deg, #D2691E, #CD853F);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+}
+
+.add-recipe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.add-recipe-btn:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Modal Styles */
+/* Overlay and modal for recipe form */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(2px);
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #8B4513;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+    background-color: #f0f0f0;
+}
+
+/* Recipe Form Styles */
+/* Clean, accessible form design consistent with website theme */
+.recipe-form {
+    padding: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #D2691E;
+    box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.form-group input[type="file"] {
+    margin-bottom: 0.5rem;
+}
+
+/* Image Preview */
+.image-preview {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px dashed #ddd;
+    display: none;
+    margin-top: 0.5rem;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #666;
+    border: 2px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background-color: #e9e9e9;
+    border-color: #ccc;
+}
+
+.btn-primary:focus,
+.btn-secondary:focus {
+    outline: 2px solid #D2691E;
+    outline-offset: 2px;
+}
+
+.back-link:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+/* Mobile-first responsive design */
+/* Base styles are for mobile (320px+), then enhance for larger screens */
+
+/* Tablet styles (600px+) */
+@media (min-width: 600px) {
+    body {
+        font-size: 18px; /* Slightly larger base font */
+    }
+
+    header {
+        padding: 2rem 1.5rem;
+    }
+
+    .recipe-content {
+        padding: 2rem;
+        margin-top: 3rem;
+    }
+
+    .recipe-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .recipe-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .recipe-content ul, .recipe-content ol {
+        padding: 2rem;
+    }
+
+    .recipe-content li {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop styles (900px+) */
+@media (min-width: 900px) {
+    .recipe-content {
+        max-width: 1000px;
+    }
+
+    .recipe-content h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .recipe-content h2 {
+        font-size: 2rem;
+    }
+
+    .recipe-content img {
+        max-height: 500px;
+    }
+}
+
+/* Large desktop styles (1200px+) */
+@media (min-width: 1200px) {
+    .recipe-content {
+        max-width: 1100px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .recipe-card {
+        border: 2px solid #333;
+    }
+
+    .recipe-content {
+        border: 2px solid #333;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .recipe-card, .recipe-card img, .back-link {
+        transition: none;
+    }
+
+    .recipe-card:hover {
+        transform: none;
+    }
+
+    .recipe-card:hover img {
+        transform: none;
+    }
+}

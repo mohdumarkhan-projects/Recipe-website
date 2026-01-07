@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A collection of delicious recipes with easy-to-follow instructions and beautiful photos">
+    <meta name="theme-color" content="#8B4513">
+    <title>My Recipe Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Recipe Collection</h1>
+        <p class="header-subtitle">Discover delicious recipes from around the world</p>
+        <button id="add-recipe-btn" class="add-recipe-btn" aria-label="Add a new recipe">
+            ➕ Add New Recipe
+        </button>
+    </header>
+    <main>
+        <div id="recipe-grid" class="recipe-grid" role="grid" aria-label="Recipe collection">
+            <!-- Recipe cards will be dynamically added here -->
+        </div>
+    </main>
+
+    <!-- Add Recipe Modal -->
+    <div id="add-recipe-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Recipe</h2>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="add-recipe-form" class="recipe-form">
+                <div class="form-group">
+                    <label for="recipe-name">Recipe Name *</label>
+                    <input type="text" id="recipe-name" required placeholder="e.g., Chicken Biryani">
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-image">Recipe Image</label>
+                    <input type="file" id="recipe-image" accept="image/*">
+                    <div id="image-preview" class="image-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-ingredients">Ingredients *</label>
+                    <textarea id="recipe-ingredients" required placeholder="Enter each ingredient on a new line, e.g.&#10;- Chicken 1kg&#10;- Rice 2 cups&#10;- Onions 3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-steps">Steps *</label>
+                    <textarea id="recipe-steps" required placeholder="Enter each step on a new line, e.g.&#10;1. Heat oil in pan&#10;2. Add onions and fry&#10;3. Add chicken and cook"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipe-notes">Notes (Optional)</label>
+                    <textarea id="recipe-notes" placeholder="Any additional notes or tips..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Recipe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
