@@ -1,6 +1,6 @@
 // Configuration - Replace with your GitHub username and repository name
-const owner = 'your-github-username';
-const repo = 'your-repo-name';
+const owner = 'mohdumarkhan-projects';
+const repo = 'Recipe-website';
 
 // Function to parse YAML frontmatter from markdown content
 function parseFrontmatter(content) {
